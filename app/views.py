@@ -23,10 +23,10 @@ def index(request):
             fileroot = str(imgobj.image)
             filepath = os.path.join(settings.MEDIA_ROOT,fileroot)
             results = pipeline_model(filepath)
-            print(results)
+            print(imgobj.image)
 
-
-            return render(request,'index.html',{'form':form,'upload':True,'results':results})
+            return render(request,'index.html',{'form':form,'upload':True,'results':results,'image':imgobj.image})
+            # return HttpResponse("Finished")
 
 
     return render(request,'index.html',{'form':form,'uplaod':False})
